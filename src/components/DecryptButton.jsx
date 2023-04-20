@@ -1,7 +1,7 @@
 import InputScreen from "./InputScreen"
 
-export default function DecryptButton(){
+export default function DecryptButton({onClick}){
     return(
-        <button>Decrypt</button>
+        <button onClick={onClick}>Decrypt</button>
     )
 }

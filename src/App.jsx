@@ -8,59 +8,70 @@ import CopyButton from './components/CopyButton'
 import './App.scss'
 
 function App() {
-
+  
   const [message, setMessage] = useState('');
-  const [encryptedMsg, setEncryptedMsg] = useState('');
+  const [outputMsg, setOutputMsg] = useState('');
 
     const handleChange = event =>{
         setMessage(event.target.value)
-        console.log('Value is:', event.target.value );
     }
 
-    function encrypt(){
-      let encriptionKeys= {
-        e: "enter",
-        i: "imes",
-        a: "ai",
-        o: "ober",
-        u:"ufat"
-      }
-  
-      let keys = Object.keys(encriptionKeys);
-      let values = Object.values(encriptionKeys);
-      console.log(keys, values)
+    function encrypt (){
+      
       let original = message;
-      let encrypted ="";
-      
-      //Traverse each character in the original message
-      for (let i = 0; i < original.length; i++) {
-        //Check if keys includes the current character
-        if(keys.includes(original.charAt(i)) ){
-          let charFound = original.charAt(i) 
-          //Find the index of coincident char in the keys array        
-          let charIndex = keys.findIndex(char => charFound == char)
-          //Update encrypted string
-          encrypted += values[charIndex];
-        } else {
-          //Concatenate current char to the encrypted strig
-          encrypted += original.charAt(i)
-        }
+      if(message.match(/[^A-Za-z]/) && message.match(/[A-Z]/)){
+        alert("El mensaje no debe contener letras mayúsculas ni caracteres especiales")
+        return;
+      } else if(message.match(/[A-Z]/)){
+        alert("El mensaje no debe contener letras mayúsculas")
+        return;
+      } else if (message.match(/[^A-Za-z0-9]/)){
+        alert("El mensaje no debe contener caracteres especiales")
+        return;
       }
+
+      let encrypted = 
       
-      setEncryptedMsg(encrypted)
+      original.replace(/e/g, "enter")
+              .replace(/i/g, "imes")
+              .replace(/a/g, "ai")
+              .replace(/o/g, "ober")
+              .replace(/u/g, "ufat")
+      
+      setOutputMsg(encrypted)
+    }
+    
+    function decrypt (){
+      let original = message;
+      let decrypted = 
+      original.replace(/enter/g, "e")
+              .replace(/imes/g, "i")
+              .replace(/ai/g, "a")
+              .replace(/ober/g, "o")
+              .replace(/ufat/g, "u")
+      
+      setOutputMsg(decrypted)
     }
 
+    function copyText () {
+      navigator.clipboard.writeText(outputMsg).then(
+        alert("El texto fue copiado")
+      ).catch (error => {
+        console.error("Ocurrió un error al copiar.", error)
+      })
+    }
+    
   return (
     <div className="App">
       <div>
         <InputScreen onChange={handleChange}
             value={message}></InputScreen>
         <EncryptButton onClick={encrypt}></EncryptButton>
-        <DecryptButton></DecryptButton>
+        <DecryptButton onClick={decrypt}></DecryptButton>
       </div>
       <div>
-        <OutputScreen value={encryptedMsg}></OutputScreen>
-        <CopyButton></CopyButton>
+        <OutputScreen value={outputMsg}></OutputScreen>
+        <CopyButton onClick={copyText}></CopyButton>
       </div>
     </div>
   )

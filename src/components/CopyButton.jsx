@@ -1,10 +1,10 @@
 import InputScreen from "./InputScreen"
 
 
-export default function CopyButton(){
+export default function CopyButton({onClick}){
 
     
     return(
-        <button>Copy Text</button>
+        <button onClick={onClick}>Copy Text</button>
     )
 }
