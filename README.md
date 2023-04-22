@@ -15,6 +15,18 @@ JavaScript UI library created by Facebook.
 
 CSS preprocessor scripting language.
 
+## FontAwesomeAwesome Free
+Pictographic suit for icon vector graphics.
+
+## Font VT323 designed by Peter Hull
+Font created from glyphs of DEC VT320 text terminal wich was used in college by the designers. Se full description here https://fonts.google.com/specimen/VT323/about?query=VT323+
+
+## Inspiration
+
+Ideas from this project was a great inspiration for this one.
+https://codepen.io/elsemeow/pen/KKGpXpe
+
+
 ## Historias de usuario
 
 Los requerimientos para este proyecto son los siguientes:

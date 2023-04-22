@@ -1,11 +1,10 @@
 
-import { useState } from "react";
-
 export default function OutputScreen(props){
-
     return(
-        <textarea placeholder="message encrypted / decrypted result" value={props.value} readOnly>
-
-        </textarea>
+        <div className="output-screen">
+            <textarea placeholder="message encrypted / decrypted result" value={props.value} readOnly></textarea>
+            <p className="encrytion-notification"></p>
+        </div>
+        
     )
 }
