@@ -1,16 +1,15 @@
 import InputScreen from './InputScreen'
 import OutputScreen from './OutputScreen'
-import EncryptButton from './EncryptButton'
-import DecryptButton from './DecryptButton'
 import CopyButton from './CopyButton'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLock } from '@fortawesome/free-solid-svg-icons'
-import { faLockOpen } from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react'
+
 export default function Window(){
-    const [message, setMessage] = useState('');
+
+  const [message, setMessage] = useState('');
   const [outputMsg, setOutputMsg] = useState('');
   const [errorWarning, setErrorWarning] = useState('');
+  const [showError, setShowError] = useState(false);
+  const [showLocked, setShowLocked] = useState(false);
 
     const handleChange = event =>{
         setMessage(event.target.value)
@@ -18,26 +17,33 @@ export default function Window(){
 
     function validateInput (input){
       let error;
+      let hasError = true;
       if(message.match(/[^A-Za-z \n]/) && message.match(/[A-Z]/)){
         error = " El mensaje no debe contener letras mayúsculas ni caracteres especiales"
       } else if(message.match(/[A-Z]/)){
         error =" El mensaje no debe contener letras mayúsculas"
       } else if (message.match(/[^A-Za-z0-9 \n]/)){
         error = " El mensaje no debe contener caracteres especiales"
+      } else {
+        hasError = false;
       }
 
-      setErrorWarning(error);
+      if(hasError){
+        setOutputMsg('');
+        setErrorWarning(error);
+        setShowLocked(false);
+        setShowError(true);
+        
+      } else {
+        setShowError(false);
+        setShowLocked(true);
+      }
     }
+    
 
     function encrypt (){
-
       let original = message;
-      
-      validateInput(original);
-      
-
       let encrypted = 
-      
       original.replace(/e/g, "enter")
               .replace(/i/g, "imes")
               .replace(/a/g, "ai")
@@ -45,6 +51,8 @@ export default function Window(){
               .replace(/u/g, "ufat")
       
       setOutputMsg(encrypted)
+      validateInput(encrypted);
+      
     }
     
     function decrypt (){
@@ -57,6 +65,8 @@ export default function Window(){
               .replace(/ufat/g, "u")
       
       setOutputMsg(decrypted)
+      setShowLocked(false);
+      setShowError(false);
     }
 
     function copyText () {
@@ -76,11 +86,12 @@ export default function Window(){
                   </div>
                 <InputScreen onChange={handleChange}
                     value={message}
-                    errorWarning={errorWarning}></InputScreen>
-                <EncryptButton onClick={encrypt}></EncryptButton>
-                <DecryptButton onClick={decrypt}></DecryptButton>
-                <FontAwesomeIcon icon={faLock} />
-                <FontAwesomeIcon icon={faLockOpen} />
+                    errorWarning={errorWarning}
+                    showError={showError}
+                    showLocked={showLocked}
+                    encrypt={encrypt}
+                    decrypt={decrypt}
+                    ></InputScreen> 
             </div>
             <div>
                 <OutputScreen value={outputMsg}></OutputScreen>

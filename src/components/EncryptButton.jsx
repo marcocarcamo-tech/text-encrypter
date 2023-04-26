@@ -1,6 +1,6 @@
 
-export default function EncryptButton({onClick}){
+export default function EncryptButton({encrypt}){
     return(
-        <button onClick={onClick}>Encrypt</button>
+        <button onClick={encrypt}>Encrypt</button>
     )
 }
