@@ -1,5 +1,3 @@
-import { useState } from 'react'
-
 import Window from './components/Window';
 
 import './App.scss'
@@ -7,7 +5,9 @@ import './App.scss'
 function App() {
   return (
     <div className="App">
-      <Window></Window>
+      <Window>
+        
+      </Window>
     </div>
   )
 }
