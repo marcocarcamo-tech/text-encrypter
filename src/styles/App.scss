@@ -1,0 +1,171 @@
+*{
+    margin: 0;
+    box-sizing: content-box;
+}
+
+
+body{
+    position: relative;
+    -webkit-font-smoothing: none;
+    font-family: 'VT323', monospace;
+    width: 100%;
+    height: 100vh;
+    background-color: #008081;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.App{
+    overflow: auto;
+    
+}
+
+textarea{
+
+
+        font-size: 1.2rem;
+        font-family: 'VT323', monospace;
+        resize: none;
+        background-color: black;
+        color:#20C20E;
+        height: 7.7rem;
+        margin-top: 8px;
+        padding: 3.2px;
+        
+
+        &:focus{
+            outline: 0;
+        }  
+}
+
+button{  
+    margin-top: 8px;
+    font-family: 'VT323', monospace;
+    font-size: 1.1rem;
+    width: 80px;
+    height: 32px;
+    background-color:  #D6B8E3;
+}
+
+.window{
+    
+    
+    font-size: 1.3rem;
+    background-color: #D6B8E3;
+    margin: 48px auto;
+    width: 24rem;
+    padding: 8px 11.2px;
+    box-shadow: 3.2px   0    #353535,
+               0     3.2px #353535,
+             -3.2px   0    #fff,
+               0    -3.2px #fff;
+    z-index: 2;
+}
+
+.titlebar {
+    line-height: 48px;
+    background-color: #1c419f;
+    color: #fff;
+    padding: 0 12px;
+    display: flex;
+
+    
+}
+.x-button{
+    
+    align-self: center;
+    background-color: #D6B8E3;
+    width: 32px;
+    height: 32px;
+    margin: 0 0 0 auto;
+    
+    font-size: 24px;
+    font-weight: 600;
+    cursor:pointer;
+}
+
+.input-screen, .output-screen{
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    margin: 16px 0;
+    box-shadow: -3.2px 0 #353535, 0 -3.2px #353535, 3.2px 0 #fff, 0 3.2px #fff;
+
+}
+
+.warning{
+    color: red;
+    display: flex;
+    
+    align-items: center;
+    
+}
+
+.encryption-notification{
+    margin-left: 1em;
+}
+
+.icon{
+    text-align: center;
+    
+}
+
+.programs{
+    position: absolute;
+    top: 0;
+    display: inline-block;
+    margin-top: 15px;
+    margin-left: 15px;
+    z-index: 1;
+    
+}
+
+.programs a{
+    text-decoration: none;
+    color: #fff;
+}
+
+
+
+footer{
+    position: relative;
+    width: 100%;
+    height: 2rem;
+    bottom: 0;
+    padding-bottom: 0.7rem;
+    padding-top: 0.7rem;
+    background-color: #D6B8E3;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@media screen and (max-width: 26.25rem) {
+    .window{
+        width: 20rem;
+    }
+
+    textarea{
+        height: 8rem; 
+    }
+
+    
+}
+
+@media screen and (max-width: 40.625rem) {
+    .window{
+        margin-top: 8rem;
+        
+    }
+    .programs{
+        display: flex;
+
+    }
+
+    .icon{
+        margin-right: 5px;
+    }
+}

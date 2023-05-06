@@ -33,7 +33,7 @@ export default function InputScreen({onChange, value, errorWarning, showError, s
     
     return(
         <div className='input-screen'>
-            <label htmlFor = 'input'>Ecribe el mensaje que desees encriptar o desencriptar <br />
+            <label htmlFor = 'input'>Escribe el mensaje que desees encriptar o desencriptar <br />
             Debes evitar el uso de mayúsculas o caracteres especiales.</label>
             <textarea 
             id="input"

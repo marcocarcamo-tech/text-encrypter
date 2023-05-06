@@ -35,6 +35,11 @@ Font created from glyphs of DEC VT320 text terminal wich was used in college by 
 This project by Maxim Belov was a great inspiration for mine.
 https://codepen.io/elsemeow/pen/KKGpXpe
 
+## Social Media Icons
+
+Icons was designed by 
+greenpixels-official and are available at https://www.deviantart.com/greenpixels-official/art/FREE-Social-Media-Icons-17x17-839129938
+
 
 ### Historias de usuario
 
