@@ -1,4 +1,6 @@
 import Window from './components/Window';
+import github from './github-icon.png';
+import linkedin from './linkedin-icon.png';
 
 import './styles/App.scss'
 
@@ -7,8 +9,8 @@ function App() {
     <div className="App">
       
       <div className='programs'>
-      <a href="https://github.com/marcocarcamo-tech" target='_blank'><img src="/github-icon.png" alt="Github-icon" /><p className='icon'>Github</p></a>
-      <a href="https://www.linkedin.com/in/marcocarcamo/" target='_blank'><img src="/linkedin-icon.png" alt="LinkedIn-icon" /><p className='icon'>LinkedIn</p></a>
+      <a href="https://github.com/marcocarcamo-tech" target='_blank'><img src={github} alt="Github-icon" /><p className='icon'>Github</p></a>
+      <a href="https://www.linkedin.com/in/marcocarcamo/" target='_blank'><img src={linkedin} alt="LinkedIn-icon" /><p className='icon'>LinkedIn</p></a>
       </div>
       
       <Window>
